@@ -56,37 +56,47 @@ footer {
 	color: #fff;
 }
 
-/* Адаптив */
-@media (max-width: 600px) {
-	nav ul {
-		flex-direction: column;
-	}
-	nav li {
-		margin: 5px 0;
-	}
-}
-.skills-grid {
-	display: grid;
-	grid-template-columns: repeat(7, 1fr);
-	gap: 10px 20px;
-	text-align: center;
+.skills-columns {
+	display: flex;
+	justify-content: flex-start;
+	gap: 40px;
+	flex-wrap: wrap;
 	margin-top: 20px;
 }
 
-.skills-grid div::before {
-	content: '• ';
-	color: #1a1a1a;
-	font-weight: bold;
+.skills-columns ul {
+	list-style-type: '• ';
+	padding-left: 20px;
+	margin: 0;
+	line-height: 1.8;
+	font-size: 1.1em;
+	text-align: left;
 }
 
-@media (max-width: 900px) {
-	.skills-grid {
-		grid-template-columns: repeat(4, 1fr);
+.skills-columns ul li::marker {
+	font-weight: bold;
+	color: #1a1a1a;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+	.skills-columns {
+		gap: 30px;
 	}
 }
 
-@media (max-width: 600px) {
-	.skills-grid {
-		grid-template-columns: repeat(2, 1fr);
+@media (max-width: 768px) {
+	.skills-columns {
+		flex-wrap: wrap;
+		justify-content: flex-start;
+	}
+	.skills-columns ul {
+		min-width: 45%;
+	}
+}
+
+@media (max-width: 480px) {
+	.skills-columns ul {
+		min-width: 100%;
 	}
 }
